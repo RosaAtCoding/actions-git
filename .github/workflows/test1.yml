@@ -19,6 +19,7 @@ jobs:
 
     hola:
         runs-on: ubuntu-latest
+        needs: [prev]
 
         steps:
         - name: Primer step
@@ -36,6 +37,7 @@ jobs:
 
     adios:
         runs-on: ubuntu-latest
+        needs: hola
 
         steps:
         - name: Segundo step

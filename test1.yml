@@ -3,7 +3,7 @@ name: Mi primer workflow
 on: [push]
 
 jobs:
-    job1:
+    hola:
         runs-on: ubuntu-latest
 
         steps:

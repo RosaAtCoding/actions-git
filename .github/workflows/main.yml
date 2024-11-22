@@ -7,8 +7,14 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4.2.2
+
             - name: ls & install curl
               run: |
-                ls -al
-                sudo apt install curl
-                curl https://google.com
+                ls -l
+                chmod +x mainscript.sh
+                ./mainscript.sh
+            
+            - name: Test curl
+              run: curl https://www.githab.com

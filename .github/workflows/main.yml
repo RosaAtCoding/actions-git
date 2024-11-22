@@ -9,3 +9,6 @@ jobs:
         steps:
             - name: ls
               run: ls -al
+            
+            - name: install curl
+              run: apt install curl

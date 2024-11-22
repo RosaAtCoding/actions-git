@@ -12,6 +12,12 @@ jobs:
         
         - name: Crear file
           run: touch hola.txt
+        
+        - name: Add content
+          run: echo "Hola guapa!" > hola.text
+        
+        - name: Display text
+          run: cat hola.txt
 
     adios:
         runs-on: ubuntu-latest

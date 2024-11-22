@@ -1,0 +1,11 @@
+name: Mi primer workflow
+
+on: [push]
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Primer step
+              run: echo "Hola Mundo!S"git status       

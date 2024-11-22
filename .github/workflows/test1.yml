@@ -9,6 +9,9 @@ jobs:
         steps:
         - name: Primer step
           run: echo "Hola Mundo!"
+        
+        - name: Crear file
+          run: touch hola.txt
 
     adios:
         runs-on: ubuntu-latest

@@ -7,8 +7,7 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: ls
-              run: ls -al
-            
-            - name: install curl
-              run: apt install curl
+            - name: ls & install curl
+              run: |
+                ls -al
+                sudo apt install curl

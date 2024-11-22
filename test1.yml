@@ -8,4 +8,4 @@ jobs:
 
         steps:
             - name: Primer step
-              run: echo "Hola Mundo!S"git status       
+              run: echo "Hola Mundo!S"

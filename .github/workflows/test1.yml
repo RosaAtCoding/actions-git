@@ -3,6 +3,20 @@ name: Mi primer workflow
 on: [push]
 
 jobs:
+    prev:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: pwd
+          run: pwd
+        
+        - name: whoami
+          run: whoami
+        
+        - name: hostname
+          run: hostname
+
+
     hola:
         runs-on: ubuntu-latest
 
@@ -18,6 +32,7 @@ jobs:
         
         - name: Display text
           run: cat hola.txt
+
 
     adios:
         runs-on: ubuntu-latest

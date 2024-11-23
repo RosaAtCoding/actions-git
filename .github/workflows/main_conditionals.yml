@@ -1,4 +1,4 @@
-name: Using conditionals
+name: Using conditionals & artifacts
 
 on: [push]
 
@@ -19,3 +19,14 @@ jobs:
             - name: Third step
               if: steps.apt_update.outcome == 'sucess' && steps.apt_update.outcome == 'fail'
               run: echo "You are wrong!"
+    
+    using-artifacts:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Artifacts
+              uses: actions/upload-artifact@v4.4.3
+              with:
+                name: artifacts
+                path: hola.txt
+

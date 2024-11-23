@@ -1,0 +1,11 @@
+name: Using Repository Variables
+
+on: [push]
+
+jobs:
+    using-variables:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Test1
+              run: echo "Install JDK version ${{ vars.JDK_VERSION}}"

@@ -7,6 +7,8 @@ runs:
   steps:
   - name: Hola guapa
     run: echo "Hola guapa!"
+    shell: bash
   
   - name: whoami
     run: whoami
+    shell: bash

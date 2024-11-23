@@ -1,0 +1,12 @@
+name: "Rosas Action"
+description: "My first Action"
+
+runs:
+  using: "composite"
+
+  steps:
+  - name: Hola guapa
+    run: echo "Hola guapa!"
+  
+  - name: whoami
+    run: whoami

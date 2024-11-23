@@ -1,0 +1,41 @@
+name: SSH authentication & deploy
+# Or use: https://github.com/marketplace/actions/ssh-remote-commands
+
+on:
+    push:
+        branches:
+            - test_deployment
+
+jobs:
+    ssh_authentication:
+        runs-on: ubuntu-latest
+
+        env:
+            IP: 20.243.84.17
+
+        steps:
+            - name: setup
+              run: |
+                mkdir -p ~/.ssh
+                echo "${{ secrets.SSH_KEY }}" >> ~/.ssh/id_rsa
+                chmod 600 ~/.ssh/id_rsa
+                ssh-keyscan -H ${{ env.IP }} >> ~/.ssh/known_hosts
+        
+            - name: ssh ls
+              run: ssh azureuser@${{ env.IP }}  "ls -al"
+
+            - name: Executing SSH Remote Commands using password
+              uses: appleboy/ssh-action@v1.2.0
+              if: success()
+              with:
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                #password: ${{ secrets.PASSWORD }}
+                key: ${{ secrets.KEY }}
+                port: ${{ secrets.PORT }}
+                #script: whoami  // To test the connection
+                script: |
+                    cd /home/azureuser/actions
+                    git pull origin main
+
+        

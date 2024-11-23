@@ -1,4 +1,5 @@
 name: SSH authentication (used with custom runner)
+# Or use: https://github.com/marketplace/actions/ssh-remote-commands
 
 on:
     push:

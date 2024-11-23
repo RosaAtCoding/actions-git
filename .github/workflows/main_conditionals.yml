@@ -1,0 +1,21 @@
+name: Using conditionals
+
+on: [push]
+
+jobs:
+    using-conditionals:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: First step
+              id: apt_update
+              run: sudo apt update
+            
+            - name: Second step
+              id: apt_install
+              if: steps.apt_update.outcome == 'success'
+              run: sudo apt install vim -y
+            
+            - name: Third step
+              if: steps.apt_update.outcome == 'sucess' && steps.apt_update.outcome == 'fail'
+              run: echo "You are wrong!"

@@ -7,8 +7,13 @@ jobs:
         runs-on: ubuntu-latest
 
         env:
-            MY_VAR: Mi variable de entorno
+            MY_VAR: Mi variable de entorno en Job
         
         steps:
-            - name: Test 
+            - name: Test1
+              run: echo "Valor $MY_VAR"
+
+            - name: Test2
+              env:
+                MY_VAR: Mi variable de entorno en Step
               run: echo "Valor $MY_VAR"

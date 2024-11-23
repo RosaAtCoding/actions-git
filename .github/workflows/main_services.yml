@@ -13,3 +13,7 @@ jobs:
                     MY_SQL_PASSWORD: my-pass$
                 ports:
                     - 3306:3306
+        
+        steps:
+            - name: Test 
+              run: ls

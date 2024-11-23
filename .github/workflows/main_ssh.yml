@@ -1,0 +1,24 @@
+name: SSH authentication (used with custom runner)
+
+on:
+    push:
+        branches:
+            - test_deployment
+
+jobs:
+    ssh_authentication:
+        runs-on: ubuntu-latest
+
+        env:
+            IP: 20.243.84.17
+
+        steps:
+            - name: setup
+              run: |
+                mkdir -p ~/.ssh
+                echo "${{ secrets.SSH_KEY }}" >> ~/.ssh/id_rsa
+                chmod 600 ~/.ssh/id_rsa
+                ssh-keyscan -H ${{ env.IP }} >> ~/.ssh/known_hosts
+        
+            - name: ssh ls
+              run: ssh azureuser@${{ env.IP }}  "ls -al"

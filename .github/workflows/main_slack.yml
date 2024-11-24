@@ -1,0 +1,12 @@
+name: Notification using Slack
+# Slack: Incoming Webhooks
+# Add Secret: WEBHOOK_URL
+# https://github.com/marketplace/actions/slack-notify
+
+on: [push]
+
+jobs:
+    using-slack:
+        runs-on: ubuntu-latest
+
+        steps:

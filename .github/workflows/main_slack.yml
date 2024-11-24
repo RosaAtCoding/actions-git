@@ -1,6 +1,6 @@
 name: Notification using Slack
 # Slack: Incoming Webhooks
-# Add Secret: WEBHOOK_URL
+# Add Secret: SLACK_WEBHOOK
 # https://github.com/marketplace/actions/slack-notify
 
 on: [push]
@@ -10,3 +10,14 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4.2.2
+
+            - name: Slack Notify
+              uses: rtCamp/action-slack-notify@v2.3.2
+              env:
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+              with:
+                author_name: "Action"
+                fields: repo, message, commit, author, action, eventName
+          

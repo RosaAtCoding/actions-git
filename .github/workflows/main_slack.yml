@@ -3,7 +3,10 @@ name: Notification using Slack
 # Add Secret: SLACK_WEBHOOK
 # https://github.com/marketplace/actions/slack-notify
 
-on: [push]
+on:
+    push:
+        branches:
+            - test_slack
 
 jobs:
     using-slack:

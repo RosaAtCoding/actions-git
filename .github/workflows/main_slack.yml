@@ -14,10 +14,12 @@ jobs:
 
         steps:
             - name: Checkout
+              id: checkout
               uses: actions/checkout@v4.2.2
 
             - name: Slack Notify
               uses: rtCamp/action-slack-notify@v2.3.2
+              if: steps.checkout.outcome == 'success'
               env:
                 SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
               with:
